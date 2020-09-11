@@ -1,3 +1,14 @@
+import pymysql.cursors
+
+
+connection = pymysql.connect(host = 'localhost',
+                            user='root',
+                            passwd='Amil@2020',
+                            db='estoquev2',
+                            charset='utf8m4',
+                            cursorclass=pymysql.cursors.DictCursor)
+
+
 class Produto:
     def __init__(self, descricao, tipo, fornecedor,estoq_min, estoq_ini,estoq_atual):
         self.descricao = descricao
@@ -18,4 +29,9 @@ class Produto:
         estoq_atual = input('Qual a quantidade atual: ')
 
         prod = Produto(descricao,tipo,fornecedor,estoq_min,estoq_ini,estoq_atual)
+    
+        with connection.cursor() as cursor:
+            sql = "INSERT INTO 'PRODUTO'('DESCRICAO,TIPO,FORNECEDOR,ESTOQ_MIN,ESTOQ_INI,ESTOQ_ATUAL')"
+            cursor.execute(sql,(prod.descricao,prod.tipo,prod.fornecedor,prod.estoq_min,prod.estoq_ini,prod.estoq_atual))
+            connection.commit()
         
