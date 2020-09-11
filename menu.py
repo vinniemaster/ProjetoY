@@ -1,3 +1,4 @@
+import estoque
 
 continua = 1
 while (continua == 1):
@@ -6,17 +7,17 @@ while (continua == 1):
 
     if escolha == 1:
         try:
-#           class/function()
+            cadastro_prod()
         except (ValueError, RuntimeError, TypeError, NameError):
-#           class/function()
+            print('Digite uma opção valida')
         pass
-    elif escolha == 2:
-        try:
-#           class/function()
-            print('Produto Cadastrado com sucesso')
-        except (RuntimeError, TypeError, NameError, OSError):
-            print('Sem produtos cadastrados')
-        pass
+#     elif escolha == 2:
+#         try:
+# #           class/function()
+#             print('Produto Cadastrado com sucesso')
+#         except (RuntimeError, TypeError, NameError, OSError):
+#             print('Sem produtos cadastrados')
+#         pass
     elif escolha == 3:
         break
     else:
