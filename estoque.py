@@ -5,7 +5,7 @@ connection = pymysql.connect(host = 'localhost',
                             user='root',
                             passwd='Amil@2020',
                             db='estoquev2',
-                            charset='utf8m4',
+                            charset='utf8mb4',
                             cursorclass=pymysql.cursors.DictCursor)
 
 
