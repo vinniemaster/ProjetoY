@@ -19,19 +19,19 @@ class Produto:
         self.estoq_atual = estoq_atual
 
 
-    def cadastro_prod():
+def cadastro_prod():
 
-        descricao = input('Digite a descrição do produto: ')
-        tipo = input('Qual o tipo do produto: ')
-        fornecedor = input('Qual o fornecedor: ')
-        estoq_min = input('Quantidade mínima em estoque: ')
-        estoq_ini = input('Qual a quantidade inicial do estoque: ')
-        estoq_atual = input('Qual a quantidade atual: ')
+    descricao = input('Digite a descrição do produto: ')
+    tipo = input('Qual o tipo do produto: ')
+    fornecedor = input('Qual o fornecedor: ')
+    estoq_min = input('Quantidade mínima em estoque: ')
+    estoq_ini = input('Qual a quantidade inicial do estoque: ')
+    estoq_atual = input('Qual a quantidade atual: ')
 
-        prod = Produto(descricao,tipo,fornecedor,estoq_min,estoq_ini,estoq_atual)
-    
-        with connection.cursor() as cursor:
-            sql = "INSERT INTO 'PRODUTO'('DESCRICAO,TIPO,FORNECEDOR,ESTOQ_MIN,ESTOQ_INI,ESTOQ_ATUAL')"
-            cursor.execute(sql,(prod.descricao,prod.tipo,prod.fornecedor,prod.estoq_min,prod.estoq_ini,prod.estoq_atual))
-            connection.commit()
+    prod = Produto(descricao,tipo,fornecedor,estoq_min,estoq_ini,estoq_atual)
+
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO 'PRODUTO'('DESCRICAO,TIPO,FORNECEDOR,ESTOQ_MIN,ESTOQ_INI,ESTOQ_ATUAL')"
+        cursor.execute(sql,(prod.descricao,prod.tipo,prod.fornecedor,prod.estoq_min,prod.estoq_ini,prod.estoq_atual))
+        connection.commit()
         

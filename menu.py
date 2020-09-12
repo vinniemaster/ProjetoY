@@ -7,7 +7,7 @@ while (continua == 1):
 
     if escolha == 1:
         try:
-            estoque.cadastro_prod
+           estoque.cadastro_prod()
         except ValueError:
             print('Digite uma opção valida')
         pass
