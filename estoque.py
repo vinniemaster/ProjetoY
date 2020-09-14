@@ -31,7 +31,16 @@ def cadastro_prod():
     prod = Produto(descricao,tipo,fornecedor,estoq_min,estoq_ini,estoq_atual)
 
     with connection.cursor() as cursor:
-        sql = "INSERT INTO 'PRODUTO'('DESCRICAO,TIPO,FORNECEDOR,ESTOQ_MIN,ESTOQ_INI,ESTOQ_ATUAL')"
+        sql = "INSERT INTO 'PRODUTO'('DESCRICAO','TIPO','FORNECEDOR','ESTOQ_MIN','ESTOQ_INI','ESTOQ_ATUAL') VALUES (%S,%S,%S,%S,%S,%S)"
         cursor.execute(sql,(prod.descricao,prod.tipo,prod.fornecedor,prod.estoq_min,prod.estoq_ini,prod.estoq_atual))
         connection.commit()
         
+
+def consulta_prod():
+
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM PRODUTO WHERE 'ID_PRODUTO' >=%S"
+        cursor.execute(sql,('0',))
+        for item in cursor.fetchall():
+            print(item)
+        connection.close()
