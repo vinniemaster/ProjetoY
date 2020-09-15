@@ -1,18 +1,25 @@
 import estoque
+import os
 
+print("***Controle de estoque***")
 continua = 1
 while (continua == 1):
     try:
-        escolha_str = input('ESTOQUE MERCADO\nEscolha sua opção:\n1-Cadastro\n2-Consulta\n3-Sair\n')
-        escolha = int(escolha_str)
+        escolha = int(input('\n1-Cadastro\n2-Consulta\n3-Sair\nEscolha sua opção:'))
     except ValueError:
         print('Digite uma opção valida!')
-    if escolha == 1:
+    if (escolha == 1):
         estoque.cadastro_prod()
         print('Produto cadastrado com sucesso!')
-    elif escolha == 2:
+        input('Continue')
+    elif (escolha == 2):
         estoque.consulta_prod()
-    elif escolha == 3:
+        input('Continue')
+    elif (escolha == 3):
         break
     else:
         print('Digite uma opção valida!')
+        input('Continue')
+
+    clear = lambda:os.system('clear')
+    clear()

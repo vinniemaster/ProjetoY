@@ -41,6 +41,9 @@ def consulta_prod():
     with connection.cursor() as cursor:
         sql = "SELECT * FROM PRODUTO WHERE `ESTOQ_MIN` >=%s"
         cursor.execute(sql,('0'))
-        for item in cursor.fetchall():
-            print(item)
+        result = cursor.fetchone()
+        print(result)
+        
+        #for item in cursor.fetchall():
+        #    print(item)
         connection.close()
